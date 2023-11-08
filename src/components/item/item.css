@@ -1,0 +1,66 @@
+/* ITEM */
+.item {
+    max-width: 980px; /*Обмежувачий контейнер + відступи*/
+    margin: 0 auto;
+
+    padding: 70px 15px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 42px;
+    grid-row-gap: 25px;
+    position: relative;
+
+}
+
+.item__img img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.item__img {
+    max-width: 100%;
+    text-align: right;
+}
+
+.item__descr {
+    padding: 0 0.9375rem;
+}
+
+.item__item {
+    text-align: left;
+    line-height: 1.5;
+}
+
+.item-descr__title {
+    margin-top: 25px;
+}
+.item-descr__descr {
+    margin-top: 16px;
+}
+.item-descr__price {
+    margin-top: 16px;
+    font-size: 24px;
+}
+.item-descr_bold{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+@media (max-width: 48em) {
+    .item {
+        padding: 50px 10px;
+        grid-template-columns:  auto
+    }
+
+    .item__img {
+        order: 2
+    }
+    .item__img {
+        max-width: 100%;
+        text-align: center;
+    }
+    .item__item {
+        text-align: center;
+    }
+}

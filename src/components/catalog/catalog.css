@@ -1,0 +1,50 @@
+/* Catalog */
+.catalog__container {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+}
+
+.catalog__items {
+    display: grid;
+    column-gap: 4.4375rem;
+    row-gap: 3.75rem;
+    grid-template-columns: repeat(3,minmax(13.75rem, 1fr));
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog__control{
+    text-align: center;
+    margin-top: 30px;
+}
+.catalog__button{
+    min-width: 75px;
+    padding: 10px 50px;
+    border-radius: 4px 0px 0px 4px;
+    background: #FFF;
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+}
+
+.catalog__button:disabled{
+    background: #C0C0C0;
+}
+
+@media (max-width: 62em) {
+    .catalog__items {
+        column-gap: 2.5rem;
+    }
+}
+@media (max-width: 48em) {
+    .catalog__items {
+        grid-template-columns: repeat(2, 13.75rem);
+        column-gap: 3.75rem;
+          }
+}
+
+@media (max-width: 36em) {
+    .catalog__items {
+        grid-template-columns: 13.75rem;
+
+          }
+}

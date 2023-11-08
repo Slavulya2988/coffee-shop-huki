@@ -1,0 +1,40 @@
+.about {
+}
+.about__container {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.about__descr {
+    padding: 0 0.9375rem;
+}
+
+.about__item {
+    text-align: center;
+    line-height: 1.5;
+
+}
+
+.about__item p:first-child{
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 48em) {
+    .about__container {
+        padding: 3.125rem 0;
+    }
+    .about__content {
+        grid-template-columns:  auto
+    }
+    .about__img {
+        order: 2
+    }
+    .about__img {
+        max-width: 100%;
+        text-align: center;
+    }
+    .about__content::after{
+        bottom: -5%;
+     }
+}
