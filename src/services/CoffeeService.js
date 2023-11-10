@@ -16,7 +16,7 @@ const  useCoffeeService = () => {
 
     const getProduct = async (id) => {
         const res = await request(`${_apiBase}`);
-        return _transformDataCatalog(res.product[id]);
+         return _transformDataCatalog(res.product[id]);
 
     }
 
@@ -41,7 +41,8 @@ const  useCoffeeService = () => {
             country: resProduct.country,
             price: resProduct.price,
             img: resProduct.urlImg,
-            id: resProduct.id
+            id: resProduct.id,
+            descr:  resProduct.descr
         }
     }
 

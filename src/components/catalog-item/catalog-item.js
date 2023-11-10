@@ -1,11 +1,13 @@
 import './catalog-item.css';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 
 const  CatalogItem = (props) => {
-        const {name, type, weight, country, price, img} = props;
+        const {name, type, weight, country, price, img, id} = props;
     return (
-        <a href="#"
+        <Link to={`/catalog/${id}`}
             className="catalog__item"
             >
             <div className="catalog__item-img">
@@ -22,7 +24,7 @@ const  CatalogItem = (props) => {
             <div className="catalog__item-price">
                 {price + '$'}
             </div>
-        </a>
+        </Link>
     )
 
 }

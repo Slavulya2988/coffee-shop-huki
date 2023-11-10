@@ -44,12 +44,12 @@ const Catalog = (props) => {
     const renderCatalogItem = (arr) =>{
 
         const cards = arr.map((item, i) => {
-            const {id, ...itemProps} = item;
+            // const {id, ...itemProps} = item;
 
             return(
                 <CatalogItem
-                    key={id}
-                    {...itemProps}/>
+                    key={i}
+                    {...item}/>
             )
         });
 
