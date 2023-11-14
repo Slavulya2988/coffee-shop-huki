@@ -13,10 +13,12 @@
 .catalog__item:hover{
     filter: drop-shadow(0.3125rem 0.3125rem 2.1875rem rgba(0, 0, 0, 0.8));
 }
-
+.catalog__item-img{
+    height: 115px;
+}
 .catalog__item img{
-    max-width: 100%;
-    min-height: 7.1875rem;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 

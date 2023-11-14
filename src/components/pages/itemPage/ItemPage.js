@@ -21,8 +21,8 @@ const ItemPage = () => {
 
     const updateProduct = () => {
         getProduct(itemId)
-            // .then(onProductLoaded)
-            .then(res => {console.log(res)})
+            .then(onProductLoaded)
+            // .then(res => {console.log(res)})
     }
 
     const onProductLoaded = (product) => {
@@ -36,19 +36,19 @@ const ItemPage = () => {
 
     return (
         <>
-            {/* {errorMessage}
+            {errorMessage}
             {spinner}
-            {view} */}
+            {view}
         </>
     )
 }
 
 const View = ({product}) => {
-    const { name, country, price, urlImg,  descr} = product;
+    const { name, country, price, img,  descr} = product;
     return (
         <section className="item">
             <div className="item__img">
-                    <img src={urlImg} alt="coffee"/>
+                    <img src={img} alt="coffee"/>
             </div>
             <div className="item__descr">
                 <h2 className="item__title title--article">{name}</h2>
@@ -68,8 +68,9 @@ const View = ({product}) => {
                             <span  className="item-descr_bold">Price: </span> {price}$
                     </div>
                     </div>
-                    <Link to="/catalog">Back to all</Link>
+
             </div>
+            <Link to="/catalog">Back to all</Link>
         </section>
     );
 }

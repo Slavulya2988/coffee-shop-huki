@@ -12,7 +12,7 @@ const PleasurePage = () => {
 
     return(
         <>
-            <Header title='For your pleasure'/>
+            <Header title='For your pleasure' />
                 <main className="page">
                     <ErrorBoundary>
                         <About page={2}/>

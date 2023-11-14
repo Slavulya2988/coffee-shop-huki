@@ -16,12 +16,12 @@ const  useCoffeeService = () => {
 
     const getProduct = async (id) => {
         const res = await request(`${_apiBase}`);
-         return _transformDataCatalog(res.product[id]);
+         return _transformDataCatalog(res.product[id-1]);
 
     }
 
     const  getAbout = async (id) => {
-        const res = await request(`${_apiBase}`);
+        const res = await request('db/db.json');
         return _transformDataAbout(res.about[id]);
     }
 

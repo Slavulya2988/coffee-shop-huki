@@ -29,7 +29,7 @@ const Catalog = (props) => {
 
     const onCoffeeListLoaded = (newCoffeeList) => {
         let eneded = false;
-        if(newCoffeeList.length > 14){
+        if(newCoffeeList.length > 8){
             eneded = true;
         }
 

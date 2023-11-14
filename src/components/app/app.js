@@ -2,15 +2,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/rea
 import './app.css';
 import {MainPage, CatalogPage, PleasurePage, Page404, ItemPage} from '../pages';
 
-import { useCoffeeService } from '../services/CoffeeService';
-
 import Footer from '../footer/footer';
 
 const App = () => {
-// отримання одного елемента у массиві по id
-const {getProduct} = useCoffeeService();
-const coffeeService = getProduct(0);
-coffeeService.then(res => console.log(res));
+
 
     return (
         <Router>
