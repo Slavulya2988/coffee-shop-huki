@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import useCoffeeService from '../../../services/CoffeeService';
 import Spinner from '../../spinner/spinner';
 import ErrorMessage from '../../errorMessage/error';
+import Header from '../../header/header';
 
 import './itemPage.css';
 import coffee from '../../../resources/img/about/coffee-beans-black.svg';
@@ -36,6 +37,7 @@ const ItemPage = () => {
 
     return (
         <>
+        <Header title='Our Coffee'/>
             {errorMessage}
             {spinner}
             {view}
@@ -46,6 +48,7 @@ const ItemPage = () => {
 const View = ({product}) => {
     const { name, country, price, img,  descr} = product;
     return (
+
         <section className="item">
             <div className="item__img">
                     <img src={img} alt="coffee"/>

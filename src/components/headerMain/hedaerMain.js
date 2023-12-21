@@ -7,13 +7,13 @@ const HeaderMain = () => {
             <nav className="header__menu menu">
                 <ul className="menu__list">
                     <li className="menu__item">
-                        <NavLink to="/"  activeStyle={{'fontSize' : '16px', 'fontWeight' : '600' }} className="menu__link">Coffee house</NavLink>
+                        <NavLink to="/"  activeClassName='menu__link_active' className="menu__link">Coffee house</NavLink>
                     </li>
                     <li className="menu__item">
-                        <NavLink to="/catalog"  activeStyle={{'fontSize' : '16px', 'fontWeight' : '600' }} className="menu__link">Our coffee</NavLink>
+                        <NavLink to="/catalog"   activeClassName='menu__link_active' className="menu__link">Our coffee</NavLink>
                     </li>
                     <li className="menu__item">
-                        <NavLink to="/pleasure" activeStyle={{'fontSize' : '16px', 'fontWeight' : '600' }} className="menu__link">For your pleasure</NavLink>
+                        <NavLink to="/pleasure"  activeClassName='menu__link_active' className="menu__link">For your pleasure</NavLink>
                     </li>
                 </ul>
             </nav>

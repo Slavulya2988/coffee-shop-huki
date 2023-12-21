@@ -35,6 +35,12 @@
     font-weight: 400;
     cursor: pointer;
 }
+
+.menu__link_active{
+    font-size : 16px;
+    font-weight : 600;
+}
+
 .menu__link_black {
     color: #000;
 
