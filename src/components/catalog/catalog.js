@@ -1,10 +1,25 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 import useCoffeeService from '../../services/CoffeeService';
 import CatalogItem from '../catalog-item/catalog-item';
-import Spinner from '../spinner/spinner';
-import ErrorMessage from '../errorMessage/error';
+import Spinner from '../../components/spinner/spinner';
+import ErrorMessage from '../../components/errorMessage/error';
+
 import './catalog.css';
 
+const setContent = (process, Component, newItemLoading) => {
+    switch (process){
+        case  'waiting':
+            return  <Spinner/>;
+        case  'loading':
+            return newItemLoading ? <Component/> : <Spinner/>;
+        case 'confirm':
+            return <Component/>;
+        case 'error':
+        return  <ErrorMessage/> ;
+        default:
+            throw new Error ('Unexpected process state');
+    }
+}
 
 const Catalog = (props) => {
 
@@ -13,16 +28,18 @@ const Catalog = (props) => {
     const [offset, setOffset] = useState(6);
     const [itemEnded, setItemEnded] = useState(false);
 
-    const {loading, error, getAllProduct} = useCoffeeService();
+    const { getAllProduct, process, setProcess} = useCoffeeService();
 
     useEffect(() => {
         onRequest(offset, true);
+        // eslint-disable-next-line
     }, []);
 
     const onRequest = (offset, initial) => {
             initial ? setNewItemLoading(false) : setNewItemLoading(true);
             getAllProduct(offset)
                 .then(onCoffeeListLoaded)
+                .then(() => setProcess('confirm'));
 
     }
 
@@ -85,18 +102,15 @@ const Catalog = (props) => {
         const {term, filter} = props;
 
         const visibleItems = filterProduct(searchProduct(coffeList,term), filter);
-        const items = renderCatalogItem(visibleItems);
 
-
-        const errorMessage = error ? <ErrorMessage/> : null;
-        const spinner = loading && !newItemLoading ? <Spinner/> : null;
+        const elements = useMemo(() => {
+            return setContent(process, () => renderCatalogItem(visibleItems), newItemLoading);
+        }, [process])
 
            return (
             <div className="catalog">
                 <div className="catalog__container">
-                {errorMessage}
-                {spinner}
-                {items}
+                    {elements}
                 <div className="catalog__control">
                     <button
                         className="catalog__button"

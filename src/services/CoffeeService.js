@@ -2,7 +2,7 @@ import { useHttp } from "../hooks/http.hook";
 
 const  useCoffeeService = () => {
 
-    const {loading, request, error} = useHttp();
+    const { request,  process, setProcess} = useHttp();
 
     const _apiBase = 'db/db.json';
     const _baseOffset = 6;
@@ -46,7 +46,12 @@ const  useCoffeeService = () => {
         }
     }
 
-    return {loading, error, getAllProduct, getProduct,  getAbout}
+    return {
+            getAllProduct,
+            getProduct,
+            getAbout,
+            process,
+            setProcess}
 }
 
 export default useCoffeeService;

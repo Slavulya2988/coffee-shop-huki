@@ -2,8 +2,7 @@ import { useParams , Link} from 'react-router-dom/cjs/react-router-dom.min';
 import { useState, useEffect } from 'react';
 
 import useCoffeeService from '../../../services/CoffeeService';
-import Spinner from '../../spinner/spinner';
-import ErrorMessage from '../../errorMessage/error';
+import setContent from '../../../utils/setContent';
 import Header from '../../header/header';
 
 import './itemPage.css';
@@ -14,7 +13,7 @@ const ItemPage = () => {
     const {itemId} = useParams();
     const [product, setProduct] = useState({});
 
-    const {loading, error, getProduct} = useCoffeeService();
+    const { getProduct, process, setProcess} = useCoffeeService();
 
     useEffect(() => {
         updateProduct();
@@ -23,6 +22,7 @@ const ItemPage = () => {
     const updateProduct = () => {
         getProduct(itemId)
             .then(onProductLoaded)
+            .then(() => setProcess('confirm'))
             // .then(res => {console.log(res)})
     }
 
@@ -31,22 +31,16 @@ const ItemPage = () => {
     }
 
 
-    const errorMessage = error ? <ErrorMessage/> : null;
-    const spinner = loading ? <Spinner/> : null;
-    const view = <View product={product}/> ;
-
     return (
         <>
         <Header title='Our Coffee'/>
-            {errorMessage}
-            {spinner}
-            {view}
+             {setContent(process, View ,product)}
         </>
     )
 }
 
-const View = ({product}) => {
-    const { name, country, price, img,  descr} = product;
+const View = ({data}) => {
+    const { name, country, price, img,  descr} = data;
     return (
 
         <section className="item">
